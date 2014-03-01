@@ -1,0 +1,353 @@
+.nutip {
+	
+	h4 { 
+		font-size: 1.1em;
+		padding: 8px; 
+		color: #333; 
+		font-weight: bold;
+		border-radius: 10px 10px 0 0;
+	}
+	
+	p { 
+		width: auto; 
+		text-align: left;
+		margin: 0; 
+		padding: 8px; 
+		font-size: 1em;
+		font-weight: normal;
+		line-height: 16px;
+	}
+
+	
+	//types
+	&.nugget {
+		position:absolute;
+		display:none;
+		width: 300px; 
+		border-width: 1px; 
+		border-style: solid; 
+		right: -300px; 
+		border-radius: 10px;
+		box-shadow: 1px 1px 4px 1px rgba(106,106,106,0.5);
+		
+				
+		.close {
+			float: right; 
+			margin-right: 10px;
+			width: 15px; 
+			height: 15px; 
+			cursor: pointer;
+		}
+	}
+	
+	&.tip { 
+		position:absolute;
+		display:none;
+		width: 300px; 
+		border-width: 1px; 
+		border-radius: 10px;
+		box-shadow: 1px 1px 4px 1px rgba(106,106,106,0.5);
+		
+		&:after, &:before {
+			border: solid transparent;
+			content: ' ';
+			height: 0;
+			top: 100%;
+			position: absolute;
+			width: 0;
+		}
+		
+		&:after {
+			border-width: 9px;
+			left: 16px;
+		}
+		
+		&:before {
+			border-width: 10px;
+			left: 15px;
+			border-top-color: rgba(106,106,106,0.5);
+		}
+
+
+	}
+	
+	&.popup {
+		position:fixed;
+		top: 40%; 
+		left: 40%;
+		display:none;
+		width: 300px; 
+		min-height: 200px;
+		border-width: 1px; 
+		border-style: solid; 
+		border-radius: 10px;
+		box-shadow: 1px 1px 4px 8px rgba(255,255,255,0.8);
+		
+		.close {
+			float: right; 
+			margin-right: 10px;
+			width: 15px; 
+			height: 15px; 
+			cursor: pointer;
+		}
+		
+	}
+	
+	&.notify { 
+		position:fixed; 
+		top: -200px; 
+		left: 0px; 
+		width: 100%; 
+		height: 100px; 
+		border-width: 1px; 
+		border-style: solid; 
+		box-shadow: 1px 1px 4px 1px rgba(106,106,106,0.5);
+		
+		h4 {
+			border-radius: 0;
+		}
+		
+		.close {
+			float: right; 
+			margin-right: 10px;
+			width: 15px; 
+			height: 15px; 
+			cursor: pointer;
+		}
+
+	}
+	
+	&.growl {
+		position:fixed;
+		right: 10px; 
+		bottom: 10px;  
+		display:none;
+		width: 300px; 
+		border-width: 1px; 
+		border-style: solid; 
+		border-radius: 10px;
+		box-shadow: 1px 1px 4px 1px rgba(106,106,106,0.5);
+		
+				
+		.close {
+			float: right; 
+			margin-right: 10px;
+			width: 15px; 
+			height: 15px; 
+			cursor: pointer;
+		}
+	}
+
+	
+	//styles
+	&.canary {
+		background: #FCF7DF; //#FCFFA1; 
+		border-color:#F2D520; 
+		
+		h4 { 
+			background: #FEF390;
+		}
+		
+		.close { 
+			background: #F2D520;
+		}
+		
+	
+		
+		&.tip { 
+			&:after { 
+				border-top-color: #FCF7DF; //#FCFFA1;
+			}
+			&:before {
+				//border-top-color: #F2D520;
+			}
+		}
+		
+		&.trigger {
+			//background: #FCFFA1; 
+		}
+	}
+	
+	&.bluejay {
+		background: #E3F6FF; 
+		border-color: #A7DAEE;
+		
+		h4 { 
+			background:#CDE9F6;
+			//color: #6A9ECD; 
+		}
+		
+		p { 
+			//color: #6A9ECD; 
+		}
+		
+		.close {
+			background: #A7DAEE;
+		}
+		
+		&.tip { 
+			&:after { 
+				border-top-color: #E3F6FF;
+			}
+			&:before {
+				border-top-color: #A7DAEE;
+			}
+		}
+		
+		&.trigger {
+			//background: #E3F6FF;
+			//color: #6A9ECD !important; 
+		}
+	}
+	
+	&.greenjay {
+		background: #CAED9E; 
+		border-color: #90D93F;
+		
+		h4 { 
+			background:#B0DE78;
+			color: #3F6219; 
+		}
+		
+		p { 
+			color: #3F6219; 
+		}
+		
+		.close {
+			background: #90D93F;
+		}
+		
+		&.tip { 
+			&:after { 
+				border-top-color: #CAED9E;
+			}
+			&:before {
+				border-top-color: #90D93F;
+			}
+		}
+		
+		&.trigger {
+			//background: #CAED9E;
+			//color: #3F6219 !important; 
+		}
+	}
+
+	
+	&.cardinal {
+		background: #F78B83; 
+		border-color: #D95252;
+		
+		h4 { 
+			background:#F06D65; 
+			color: #610606;
+		}
+		
+		p { 
+			color: #610606;
+		}
+		
+		.close {
+			background: #D95252;
+		}
+		
+		&.tip { 
+			&:after { 
+				border-top-color: #F78B83;
+			}
+			&:before {
+				border-top-color: #D95252;
+			}
+		}
+		
+		&.trigger {
+			//background: #F78B83; 
+			//color: #610606 !important;
+		}
+	}
+	
+	&.dove {
+		background: #FFFFFF; 
+		border-color: #E2E2E2;
+		
+		h4 { 
+			background: #F1F1F1; 
+		}
+		
+		.close {
+			background: #E2E2E2;
+		}
+		
+		&.tip { 
+			&:after { 
+				border-top-color: #FFFFFF;
+			}
+			&:before {
+				border-top-color: #E2E2E2;
+			}
+		}
+		
+		&.trigger {
+			//background: #F1F1F1; 
+		}
+	}
+
+
+	
+	&.raven {
+		background: #505050; 
+		border-color: #303030;
+		
+		h4 { 
+			background: #404040; 
+			color: #fff;
+		}
+		
+		p { 
+			color: #fff;
+		}
+		
+		.close {
+			background: #303030;
+		}
+		
+		&.tip { 
+			&:after { 
+				border-top-color: #505050;
+			}
+			&:before {
+				border-top-color: #303030;
+			}
+		}
+		
+		&.trigger {
+			//background: #ccc; 
+		}
+	}
+	
+	
+	&.trigger {
+		/*padding: 5px 0px !important;
+		text-decoration: none;
+		color: #2389dd !important;
+		background: #fff !important;*/
+		cursor: pointer;
+	}
+	
+	/*
+	* types of nutips
+	* 	tip
+	*	notification - opens/creates a notification center for view the additional information
+	*	popup
+	*	sidebar
+	*/
+}
+
+.overlay {
+	display:none;
+	position: absolute;
+	top: 0px;
+	left: 0px; 
+	width: 100%; 
+	height: 101%;
+	background: rgba(0,0,0,0.7);
+}

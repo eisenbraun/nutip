@@ -1,7 +1,4 @@
-nutip
-=====
-
-Nutip jQuery Plugin
+# Nutip jQuery Plugin
 
 Copyright (c) 2014 Michael Eisenbraun (http://jquery.michaeleisenbraun.com)
 Version: 1.0.0

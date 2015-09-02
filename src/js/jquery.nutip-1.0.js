@@ -46,6 +46,7 @@ var nutips = {};
 		templates: {
 			'nugget': '<div id="{{id}}" class="nutip {{type}} {{style}}"><h4 class="nutip-title">{{title}}<div class="close"></div></h4><p class="nutip-message">{{message}}</p></div>',
 			'tip': '<div id="{{id}}" class="nutip {{type}} {{style}}"><h4 class="nutip-title">{{title}}<div class="close"></div></h4><p class="nutip-message">{{message}}</p></div>',
+			'menu': '<div id="{{id}}" class="nutip {{type}} {{style}}"><h4 class="nutip-title">{{title}}<div class="close"></div></h4><p class="nutip-message">{{message}}</p></div>',
 			'popup': '<div class="overlay" id="overlay-{{id}}"><div id="{{id}}" class="nutip {{type}} {{style}}"><h4 class="nutip-title">{{title}}<div class="close"></div></h4><p class="nutip-message">{{message}}</p></div></div>',
 			'notify': '<div id="{{id}}" class="nutip {{type}} {{style}}"><h4 class="nutip-title">{{title}}<div class="close"></div></h4><p class="nutip-message">{{message}}</p></div>',
 			'growl': '<div id="{{id}}" class="nutip {{type}} {{style}}"><h4 class="nutip-title">{{title}}<div class="close"></div></h4><p class="nutip-message">{{message}}</p></div>'
@@ -115,6 +116,33 @@ var nutips = {};
 						$this.timeout = setTimeout(function() { $this.hide();}, 500);
 					});
 					break;
+
+
+				case 'menu': 
+					$($this.template).appendTo('body');
+					$this.$nutip = $('#'+$this.nutip_id);
+					
+					$this.position = $this.$el.offset();
+					
+					if($this.$nutip.width() + $this.position.left > $(window).width()) { 
+						var adjust = $(window).width() - ($this.$nutip.width() + 30);
+						var dif = $this.position.left - adjust; 
+						
+						
+						$this.addRule('#'+$this.nutip_id+':before', 'left:'+(15+dif)+'px'); 
+						$this.addRule('#'+$this.nutip_id+':after', 'left:'+(16+dif)+'px');
+						
+						$this.$nutip.css({'top':$this.position.top-($this.$nutip.height()+5), 'left':adjust});
+						
+					} else { 
+						$this.$nutip.css({'top':$this.position.top-($this.$nutip.height()+5), 'left':$this.position.left});
+					}
+					
+					$('.close', $this.$nutip).click(function(){
+						$this.hide();
+					});
+
+					break;
 					
 				case 'popup': 
 					$($this.template).appendTo('body');
@@ -164,6 +192,10 @@ var nutips = {};
 				case 'tip': 
 					$this.$nutip.fadeOut();
 					break;
+
+				case 'menu': 
+					$this.$nutip.fadeOut();
+					break;
 					
 				case 'popup': 
 					$this.$overlay.hide();
@@ -196,6 +228,13 @@ var nutips = {};
 					break; 
 				
 				case 'tip': 
+					window.clearTimeout($this.timeout)
+					$this.$nutip.fadeIn();
+					
+					//$this.$el.addClass($this.style+' magnify');
+					break;
+
+				case 'menu': 
 					window.clearTimeout($this.timeout)
 					$this.$nutip.fadeIn();
 					
@@ -284,7 +323,7 @@ $(document).ready(function() {
 		var nutip = tigger.data('nutip');
 		var type = tigger.data('nutip-type'); 
 		
-		if(!((type == 'popup' || type == 'notify' || type == 'growl') && e.type == 'mouseover')) { 
+		if(!((type == 'popup' || type == 'notify' || type == 'growl' || type == 'menu') && e.type == 'mouseover')) { 
 			nutips[nutip].show();
 		}
 		
